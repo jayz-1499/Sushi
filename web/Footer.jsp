@@ -15,7 +15,28 @@
     </head>
     <body>
         <div class="footer">
-            <a href="#">Create with SimpleSite</a>
+             <a href="#">Create with SimpleSite</a>
+           <div id = "view" class="view">${sessionScope.viewCount}</div>
         </div>
     </body>
+    <script>
+        function formatView(content) {
+            while (content.length < 6) {
+                content = "0" + content;
+            }
+            return content;
+        }
+        let view = document.getElementById("view");
+        let content = "";
+
+        let originContent = formatView(view.textContent);
+        for (let i = 0; i < originContent.length; i++) {
+            content += "<span class='view-number'>" + originContent[i] + "</span>";
+        }
+
+        view.innerHTML = content;
+
+        
+
+    </script>
 </html>

@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,6 +32,8 @@ public class MenuControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
+            HttpSession ss =  request.getSession();
+            ss.setMaxInactiveInterval(5);
             //begin of set imagePath
             DBContext bContext = new DBContext();
             String imagePath = bContext.getImagePath();
